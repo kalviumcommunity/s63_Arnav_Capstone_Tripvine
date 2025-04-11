@@ -269,40 +269,22 @@ Allow users to tag stories with activity/travel type
 
 
 Day 12:
-
-
 Add Save/Favorite button
-
-
 Display saved stories on profile
 
-
 Day 13:
-
-
 Add Like and Share functionality
-
-
 Implement basic animations for UX
 
-
 Day 14:
-
-
 Responsive testing across devices
-
-
 UI refinements for feed and story pages
 
 
 
 Week 3: Social, Planning, and Mapping (Days 15–21)
 Day 15:
-
-
 Follow/Unfollow travelers
-
-
 List followed users and stories in dashboard
 
 
