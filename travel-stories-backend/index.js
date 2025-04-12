@@ -1,18 +1,20 @@
+// /index.js
 const express = require('express');
 const app = express();
-const TravelStory = require('./models/TravelStory'); // imported for structure only
+const travelStoriesRoutes = require('./routes/travelStories');
 
+// Middleware to parse incoming requests with JSON payload
 app.use(express.json());
 
-// GET API (Just returns a placeholder message)
+// Use travel stories routes
+app.use('/api/stories', travelStoriesRoutes);
+
+// Sample route to check if the server is running
 app.get('/', (req, res) => {
-  res.send('Hello from Travel Stories Backend');
+  res.send('Hello from Travel Stories Backend!');
 });
 
-app.get('/api/stories', (req, res) => {
-  res.json({ message: 'GET route for travel stories is ready' });
-});
-
+// Start the server
 const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
