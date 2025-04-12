@@ -6,7 +6,7 @@ User Registration & Authentication
 Secure sign-up/login via Auth0/Firebase.
 
 
-Social login options (Google, Facebook).
+Social login options (Google).
 
 
 Profile includes:
