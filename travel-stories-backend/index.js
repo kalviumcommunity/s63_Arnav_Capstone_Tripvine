@@ -1,21 +1,24 @@
-// /index.js
+require('dotenv').config();
 const express = require('express');
-const app = express();
-const travelStoriesRoutes = require('./routes/travelStories');
+const mongoose = require('mongoose');
+const travelRoutes = require('./routes/travelStories');
 
-// Middleware to parse incoming requests with JSON payload
+const app = express();
 app.use(express.json());
 
-// Use travel stories routes
-app.use('/api/stories', travelStoriesRoutes);
+// Routes
+app.use('/api/stories', travelRoutes);
 
-// Sample route to check if the server is running
-app.get('/', (req, res) => {
-  res.send('Hello from Travel Stories Backend!');
-});
+// DB Connection
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => console.log('Connected to MongoDB'))
+.catch(err => console.error('MongoDB connection error:', err));
 
-// Start the server
-const PORT = 5000;
+// Server
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });

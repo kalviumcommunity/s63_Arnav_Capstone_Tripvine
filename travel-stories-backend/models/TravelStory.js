@@ -2,28 +2,30 @@
 
 const mongoose = require('mongoose');
 
+const ratingSchema = new mongoose.Schema({
+  safety: { type: Number, min: 0, max: 5 },
+  affordability: { type: Number, min: 0, max: 5 },
+  cleanliness: { type: Number, min: 0, max: 5 },
+  overall: { type: Number, min: 0, max: 5 }
+}, { _id: false });
+
 const travelStorySchema = new mongoose.Schema({
-  title: String,
-  destination: String,
-  country: String,
-  bestTimeToVisit: String,
-  activities: [String],
-  rating: {
-    safety: Number,
-    affordability: Number,
-    cleanliness: Number,
-    overall: Number
-  },
-  pros: String,
-  cons: String,
-  mediaUrls: [String],
-  tips: String,
-  tags: [String],
+  title: { type: String, required: true },
+  destination: { type: String, required: true },
+  country: { type: String, required: true },
+  bestTimeToVisit: { type: String },
+  activities: [{ type: String }],
+  rating: ratingSchema,
+  pros: { type: String },
+  cons: { type: String },
+  mediaUrls: [{ type: String }],
+  tips: { type: String },
+  tags: [{ type: String }],
   createdAt: {
     type: Date,
     default: Date.now
   },
-  createdBy: String
+  createdBy: { type: String, required: true }
 });
 
 module.exports = mongoose.model('TravelStory', travelStorySchema);
