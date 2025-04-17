@@ -1,1 +1,13 @@
 node_modules
+
+
+
+git checkout -b "branch_name"
+make all the necessary changes in your files
+git add .
+git commit -m "comment message"
+git push origin "branch_name"
+merge PR -> Remote github acc
+Come back to vs code
+git checkout main
+git pull origin main
