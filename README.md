@@ -417,3 +417,6 @@ Fix bugs, write README & documentation
 
 
 Prepare demo video or presentation
+
+
+Deployed Frontend link = "sprightly-rolypoly-ae3b61.netlify.app"
