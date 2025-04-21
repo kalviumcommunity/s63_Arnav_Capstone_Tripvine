@@ -7,7 +7,7 @@ const TravelStory = require('../models/TravelStory');
 // GET all travel stories from DB
 router.get('/', async (req, res) => {
   try {
-    const stories = await TravelStory.find();
+    const stories = await TravelStory.find().populate('createdBy', 'name email');
     res.json(stories);
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch travel stories' });
