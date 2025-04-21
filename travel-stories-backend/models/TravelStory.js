@@ -1,5 +1,3 @@
-// models/TravelStory.js
-
 const mongoose = require('mongoose');
 
 const ratingSchema = new mongoose.Schema({
@@ -25,7 +23,11 @@ const travelStorySchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  createdBy: { type: String, required: true }
+  createdBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  }
 });
 
 module.exports = mongoose.model('TravelStory', travelStorySchema);
