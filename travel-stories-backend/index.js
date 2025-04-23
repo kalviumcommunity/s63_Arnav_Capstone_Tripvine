@@ -2,12 +2,14 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const travelRoutes = require('./routes/travelStories');
+const uploadRoute = require('./routes/upload'); // ✅ Import the upload route
 
 const app = express();
 app.use(express.json());
 
 // Routes
 app.use('/api/stories', travelRoutes);
+app.use('/api/upload', uploadRoute); // ✅ Mount the upload route
 
 // DB Connection
 mongoose.connect(process.env.MONGODB_URI, {
